@@ -9,14 +9,11 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// ✅ FIX: Get current directory and load .env from parent directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ Load .env from backend root (parent directory)
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
-// ✅ Debug: Check if variables are loaded
 console.log("🔍 Environment Check:");
 console.log("MONGO_URL:", process.env.MONGO_URL ? "✅ Loaded" : "❌ MISSING");
 console.log("PORT:", process.env.PORT || "8080 (default)");
@@ -34,7 +31,6 @@ app.use("/api/v1/users", userRoutes);
 
 const start = async () => {
   try {
-    // ✅ Check if MONGO_URL exists
     if (!process.env.MONGO_URL) {
       throw new Error(
         "❌ MONGO_URL not found!\n" +
