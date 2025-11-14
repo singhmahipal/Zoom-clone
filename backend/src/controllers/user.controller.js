@@ -1,6 +1,6 @@
 import { User } from "../models/user.model.js";
 import httpStatus from "http-status";
-import bcrypt, { hash } from "bcrypt";
+import bcrypt from "bcrypt";
 import crypto from "crypto";
 
 const login = async (req, res) => {
@@ -19,13 +19,26 @@ const login = async (req, res) => {
         .json({ message: "user not found" });
     }
 
-    if (bcrypt.compare(password, user.password)) {
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    
+    if (isPasswordValid) {
       let token = crypto.randomBytes(20).toString("hex");
 
       user.token = token;
-
       await user.save();
-      return res.status(httpStatus.OK).json({ token: token });
+      
+      return res.status(httpStatus.OK).json({ 
+        token: token,
+        user: {
+          id: user._id,
+          name: user.name,
+          username: user.username
+        }
+      });
+    } else {
+      return res
+        .status(httpStatus.UNAUTHORIZED)
+        .json({ message: "Invalid password" });
     }
   } catch (error) {
     return res.status(500).json({ message: `something went wrong ${error}` });
@@ -57,6 +70,7 @@ const register = async (req, res) => {
     res.status(httpStatus.CREATED).json({ message: "user created" });
   } catch (error) {
     console.log(`something went wrong ${error}`);
+    res.status(500).json({ message: "Registration failed" });
   }
 };
 
