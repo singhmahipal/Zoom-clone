@@ -312,7 +312,7 @@ export default function VideoMeet() {
 
       socketRef.current.on("user-joined", (id, clients) => {
         console.log("User joined:", id, "Clients:", clients);
-        
+
         clients.forEach((socketListId) => {
           connections[socketListId] = new RTCPeerConnection(
             peerConfigConnections
@@ -447,11 +447,11 @@ export default function VideoMeet() {
     } catch (e) {
       console.log("Error ending call:", e);
     }
-    
+
     if (socketRef.current) {
       socketRef.current.disconnect();
     }
-    
+
     window.location.href = "/";
   };
 
@@ -488,21 +488,36 @@ export default function VideoMeet() {
     <div>
       {askForUsername === true ? (
         <div className={styles.lobbyContainer}>
-          <h2>Enter into Lobby</h2>
-          <TextField
-            id="outlined-basic"
-            label="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            variant="outlined"
-          />
-          <Button 
-            variant="contained" 
-            onClick={connect}
-            disabled={!username.trim()}
-          >
-            Connect
-          </Button>
+          <div className={styles.lobbyCard}>
+            <h2>Enter into Lobby</h2>
+            <TextField
+              id="outlined-basic"
+              label="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              variant="outlined"
+              fullWidth
+            />
+            <Button
+              variant="contained"
+              onClick={connect}
+              disabled={!username.trim()}
+              fullWidth
+              sx={{
+                backgroundColor: "rgb(1, 4, 48)",
+                padding: "12px",
+                "&:hover": {
+                  backgroundColor: "rgb(1, 4, 70)",
+                },
+                "&.Mui-disabled": {
+                  backgroundColor: "#cccccc",
+                  color: "#666666",
+                },
+              }}
+            >
+              Connect
+            </Button>
+          </div>
 
           <div className={styles.localVideoPreview}>
             <video ref={localVideoref} autoPlay muted></video>
@@ -548,8 +563,8 @@ export default function VideoMeet() {
           ) : null}
 
           <div className={styles.buttonContainers}>
-            <IconButton 
-              onClick={handleVideo} 
+            <IconButton
+              onClick={handleVideo}
               style={{ color: "white" }}
               disabled={!videoAvailable}
             >
@@ -558,8 +573,8 @@ export default function VideoMeet() {
             <IconButton onClick={handleEndCall} style={{ color: "red" }}>
               <CallEndIcon />
             </IconButton>
-            <IconButton 
-              onClick={handleAudio} 
+            <IconButton
+              onClick={handleAudio}
               style={{ color: "white" }}
               disabled={!audioAvailable}
             >
