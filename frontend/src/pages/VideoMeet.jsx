@@ -13,7 +13,7 @@ import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import StopScreenShareIcon from "@mui/icons-material/StopScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 
-const server_url = "http://localhost:8080";
+const server_url = process.env.REACT_APP_BASE_URL || "http://localhost:8080";
 
 var connections = {};
 

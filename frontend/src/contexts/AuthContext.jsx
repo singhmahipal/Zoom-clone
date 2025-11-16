@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext({});
 
 const client = axios.create({
-  baseURL: `${process.env.BASE_URL}/api/v1/users`,
+  baseURL: `${process.env.REACT_APP_BASE_URL}/api/v1/users`,
 });
 
 export const AuthProvider = ({ children }) => {
