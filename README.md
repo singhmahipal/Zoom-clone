@@ -1,3 +1,8 @@
+It looks like you're having trouble with the formatting of your `README.md`. I'll help ensure everything is structured properly and make sure the Markdown syntax is correct.
+
+Here’s a cleaned-up and properly formatted version of your `README.md`:
+
+````markdown
 # 🚀 Apna Video - A Zoom Clone Built with WebRTC!
 
 👉 [Try it out here](https://zoom-clone-client.onrender.com)
@@ -88,11 +93,11 @@ Here’s the technology stack that powers **Apna Video**:
 }
 ```
 
-* **Dependencies**:
+**Dependencies**:
 
-  * `react`, `react-dom`, `react-router-dom`, `axios`
-  * `socket.io-client`, `@mui/material`, `@emotion/react`
-  * and more...
+* `react`, `react-dom`, `react-router-dom`, `axios`
+* `socket.io-client`, `@mui/material`, `@emotion/react`
+* and more...
 
 #### Backend (`backend/package.json`)
 
@@ -104,16 +109,56 @@ Here’s the technology stack that powers **Apna Video**:
 }
 ```
 
-* **Dependencies**:
+**Dependencies**:
 
-  * `express`, `mongoose`, `socket.io`, `cors`, `dotenv`
-  * and more...
+* `express`, `mongoose`, `socket.io`, `cors`, `dotenv`
+* and more...
 
 ---
 
 ### 🧑‍💻 Developer Insights
 
 This project was an exciting journey, especially when it came to learning how WebRTC works in real-time video and audio streaming. Here are some things I learned along the way:
+
+* Building a **peer-to-peer connection** using WebRTC.
+* Handling **media streams** and managing video/audio calls.
+* Integrating **Socket.IO** for real-time signaling and communication.
+* Working with **MongoDB** to store room data and manage user sessions.
+
+---
+
+### 🤝 Contributing
+
+Feel free to contribute! If you have any suggestions or improvements, open an issue or submit a pull request. I'd love to hear your thoughts and ideas!
+
+---
+
+### 💬 Let’s Connect
+
+* **GitHub**: [@singhmahipal](https://github.com/singhmahipal)
+* **LinkedIn**: [Mahipal Singh](https://linkedin.com/in/mahipalsingh18)
+
+---
+
+### 📚 Learnings
+
+This project gave me hands-on experience with full-stack development and real-time communication. I’m super excited to keep building and improving!
+
+---
+
+### 🏷️ Tags
+
+#WebRTC #ReactJS #MongoDB #NodeJS #SocketIO #RealTimeCommunication #VideoConferencing #ScreenSharing #ZoomClone #FullStackDeveloper #LearningByBuilding
+
+```
+
+### Key Fixes:
+1. **Closing the code block** for `clone the repository` command. It was missing a closing backtick.
+2. Added **proper Markdown headers and lists** for readability.
+3. Fixed any inconsistencies in the code blocks for the `package.json` scripts.
+
+Try this and see if it renders properly on your GitHub or other platform. Let me know if you still encounter any issues!
+```
 
 * Building a **peer-to-peer connection** using WebRTC.
 * Handling **media streams** and managing video/audio calls.
